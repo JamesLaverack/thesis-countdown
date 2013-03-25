@@ -1,4 +1,4 @@
-var true_deadline = new Date("May 17, 2013 23:59:00");
+var true_deadline = new Date("March 25, 2013 23:59:00");
 var timer;
 var deadline = true_deadline;
 $('#no-ext-button').hide();
@@ -50,9 +50,11 @@ function update_countdown(){
             txt_days += days + ' Days';
         } else if (days==1) {
             txt_days += days + ' Day';
+        } else {
+            txt_days = '';
         }
         // Hours
-        if(txt_days!="") {
+        if(txt_days!="" | txt_weeks!="") {
             txt_hours = ', ';
         }
         if(hours>1) {
@@ -72,16 +74,23 @@ function update_countdown(){
         }
         // Seconds
         if(seconds>1) {
-            txt_seconds = ', ' + seconds + ' Seconds.';
+            txt_seconds = ', ' + seconds + ' Seconds';
         } else if (seconds==1) {
-            txt_seconds = ', ' + seconds + ' Second.';
+            txt_seconds = ', ' + seconds + ' Second';
         } else {
-            txt_seconds = '.';
+            txt_seconds = '';
         }
         
+        var top_line = txt_weeks + txt_days + txt_hours;
+        if(top_line!="") {
+            $('#countdown h1').text(top_line + '.');
+            $('#countdown h2').text('and ' + txt_minutes + txt_seconds);
+        } else {
+            $('#countdown h1').text(txt_minutes + txt_seconds);
+            $('#countdown h2').text('');
+        }
         // Set
-        $('#countdown h1').text(txt_weeks + txt_days + txt_hours);
-        $('#countdown h2').text('and ' + txt_minutes + txt_seconds);
+        
         $('#waking-hours').text("That's only about " + waking_hours + " waking hours left. You could sleep less, but try not to burn out."); 
     }
 }
