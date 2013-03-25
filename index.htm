@@ -35,7 +35,7 @@
     <div class="container">
 
       <!-- Main hero unit for a primary marketing message or call to action -->
-      <div class="hero-unit text-center">
+      <div id="countdown" class="hero-unit text-center">
         <h1>8 Weeks, 3 Days, 12 Hours.</h1>
         <h2>and 13 Minutes, 7 Seconds.</h2>
       </div>
@@ -44,7 +44,7 @@
       <div class="row">
         <div class="span4">
           <h2>Type. Faster.</h2>
-          <p>That's only about 128 waking hours left. You could slep less, but try not to burn out.</p>
+          <p id='waking-hours'>That's only about 128 waking hours left. You could slep less, but try not to burn out.</p>
           <p>Oh and don't forget, you actually need to finish your results by a good 2-3 weeks before the deadline. Don't leave the writeup to the last minute.</p>
         </div>
         <div class="span4">
@@ -74,19 +74,10 @@
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="js/jquery.js"></script>
-    <script src="js/bootstrap-transition.js"></script>
-    <script src="js/bootstrap-alert.js"></script>
-    <script src="js/bootstrap-modal.js"></script>
-    <script src="js/bootstrap-dropdown.js"></script>
-    <script src="js/bootstrap-scrollspy.js"></script>
-    <script src="js/bootstrap-tab.js"></script>
-    <script src="js/bootstrap-tooltip.js"></script>
-    <script src="js/bootstrap-popover.js"></script>
-    <script src="js/bootstrap-button.js"></script>
-    <script src="js/bootstrap-collapse.js"></script>
-    <script src="js/bootstrap-carousel.js"></script>
-    <script src="js/bootstrap-typeahead.js"></script>
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/countdown.js"></script>
+    <script type="text/javascript">cdtd();</script>
 
   </body>
 </html>
