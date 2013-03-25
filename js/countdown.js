@@ -76,7 +76,7 @@ function update_countdown(){
         // Set
         $('#countdown h1').text(txt_weeks + txt_days + txt_hours);
         $('#countdown h2').text('and ' + txt_minutes + txt_seconds);
-        $('#waking-hours').text("That's only about " + waking_hours + " waking hours left. You could slep less, but try not to burn out."); 
+        $('#waking-hours').text("That's only about " + waking_hours + " waking hours left. You could sleep less, but try not to burn out."); 
     }
 }
 function extend_deadline(extention_in_hours) {
