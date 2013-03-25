@@ -70,13 +70,16 @@ function update_countdown(){
         } else if (minutes==1) {
             txt_minutes = minutes + ' Minute';
         } else {
-            txt_minutes = '0 Minutes';
+            txt_minutes = '';
         }
         // Seconds
+        if(txt_minutes!=""){
+		txt_seconds = ', ';
+	}
         if(seconds>1) {
-            txt_seconds = ', ' + seconds + ' Seconds';
+            txt_seconds += seconds + ' Seconds';
         } else if (seconds==1) {
-            txt_seconds = ', ' + seconds + ' Second';
+            txt_seconds += seconds + ' Second';
         } else {
             txt_seconds = '';
         }
@@ -84,7 +87,12 @@ function update_countdown(){
         var top_line = txt_weeks + txt_days + txt_hours;
         if(top_line!="") {
             $('#countdown h1').text(top_line + '.');
-            $('#countdown h2').text('and ' + txt_minutes + txt_seconds + '.');
+	    var bottom_line = txt_minutes + txt_seconds;
+	    if(bottom_line != "") {
+                $('#countdown h2').text('and ' + txt_minutes + txt_seconds + '.');
+            } else {
+                $('#countdown h2').text('');
+            }
         } else {
             $('#countdown h1').text(txt_minutes + txt_seconds);
             $('#countdown h2').text('');
