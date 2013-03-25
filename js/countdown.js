@@ -84,7 +84,7 @@ function update_countdown(){
         var top_line = txt_weeks + txt_days + txt_hours;
         if(top_line!="") {
             $('#countdown h1').text(top_line + '.');
-            $('#countdown h2').text('and ' + txt_minutes + txt_seconds);
+            $('#countdown h2').text('and ' + txt_minutes + txt_seconds + '.');
         } else {
             $('#countdown h1').text(txt_minutes + txt_seconds);
             $('#countdown h2').text('');
