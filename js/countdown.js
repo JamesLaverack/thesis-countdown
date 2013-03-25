@@ -43,18 +43,24 @@ function update_countdown(){
             txt_weeks = weeks + ' Week';
         }
         // Days
+        if(txt_weeks!="") {
+            txt_days = ', ';
+        }
         if(days>1) {
-            txt_days = ', ' + days + ' Days';
+            txt_days += days + ' Days';
         } else if (days==1) {
-            txt_days = ', ' + days + ' Day';
+            txt_days += days + ' Day';
         }
         // Hours
+        if(txt_days!="") {
+            txt_hours = ', ';
+        }
         if(hours>1) {
-            txt_hours = ', ' + hours + ' Hours.';
+            txt_hours += hours + ' Hours';
         } else if (hours==1) {
-            txt_hours = ', ' + hours + ' Hour.';
+            txt_hours += hours + ' Hour';
         } else {
-            txt_hours = '.';   
+            txt_hours = "";
         }
         // Minutes
         if(minutes>1) {
