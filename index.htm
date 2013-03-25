@@ -68,7 +68,7 @@
                     <li><a tabindex="-1" href="javascript:extend_deadline(24*7*2)">2 weeks</a></li>
                     <li><a tabindex="-1" href="javascript:extend_deadline(24*7*4)">1 month</a></li>      
                     <li class="divider"></li>
-                    <li><a href="#myModal" role="button" data-toggle="modal">Custom</a></li>
+                    <li><a href="#custom-ext-modal" role="button" data-toggle="modal">Custom</a></li>
                 </ul>
             </div>
           </div>
@@ -84,7 +84,7 @@
 
     </div> <!-- /container -->
 
-    <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div id="custom-ext-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
             <h3 id="myModalLabel">Custom extention</h3>
@@ -100,7 +100,7 @@
         </div>
         <div class="modal-footer">
             <a class="btn" data-dismiss="modal" aria-hidden="true">Close</a>
-            <a class="btn btn-primary disabled" id="custom-ext-submit" data-dismiss="modal" href="javascript:custom_extend_deadline()">Apply extention</a>
+            <a class="btn btn-primary" id="custom-ext-submit" href="javascript:custom_extend_deadline()">Apply extention</a>
         </div>
     </div>
     

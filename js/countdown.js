@@ -1,27 +1,8 @@
 var true_deadline = new Date("May 17, 2013 23:59:00");
 var deadline = true_deadline;
 $('#no-ext-button').hide();
-$('#custom-ext-controls input').keyup(function() {
-    
-    var txt = $('#custom-ext-controls input').val();
-    var num = parseInt(txt);
-    // Reset
-    $('#custom-ext-group').removeClass("error warning success");
-    $('#custom-ext-controls span').text("");
-    $('custom-ext-submit').addClass("disabled");
-    if (txt=="") {
-        // Do nothing
-    } else if (isNaN(num)) {
-        $('#custom-ext-group').addClass("error");
-        $('#custom-ext-controls span').text("That's not a number.");
-    } else if (num<0) {
-        $('#custom-ext-group').addClass("warning");
-        $('#custom-ext-controls span').text("Very funny, positive numbers only.");
-    } else {
-        $('#custom-ext-group').addClass("success");
-        $('#custom-ext-submit').removeClass("disabled");
-    }
-});
+$('#custom-ext-controls input').keyup(validate_custom);
+validate_custom();
 
 function cdtd() {
     update_countdown()
@@ -63,11 +44,32 @@ function extend_deadline(extention_in_hours) {
 }
 
 function validate_custom() {
-    alert("herp");
+    
+    var txt = $('#custom-ext-controls input').val();
+    var num = parseInt(txt);
+    // Reset
+    $('#custom-ext-group').removeClass("error warning success");
+    $('#custom-ext-controls span').text("");
+    $('#custom-ext-submit').addClass("disabled");
+    $('#custom-ext-submit').bind('click', false);
+    if (txt=="") {
+        // Do nothing
+    } else if (isNaN(num)) {
+        $('#custom-ext-group').addClass("error");
+        $('#custom-ext-controls span').text("That's not a number.");
+    } else if (num<0) {
+        $('#custom-ext-group').addClass("warning");
+        $('#custom-ext-controls span').text("Very funny, positive numbers only.");
+    } else {
+        $('#custom-ext-group').addClass("success");
+        $('#custom-ext-submit').removeClass("disabled");
+        $('#custom-ext-submit').unbind('click', false);
+    }
 }
 
 function custom_extend_deadline() {
     var txt = $('#custom-ext-controls input').val();
     extention_in_hours = parseInt(txt);
     extend_deadline(extention_in_hours);
+    $('#custom-ext-modal').modal('hide')
 }
