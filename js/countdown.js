@@ -38,23 +38,23 @@ function update_countdown(){
         // Link together
         // Weeks
         if(weeks>1) {
-            txt_weeks = weeks + ' Weeks, ';
+            txt_weeks = weeks + ' Weeks';
         } else if (weeks==1) {
-            txt_weeks = weeks + ' Week, ';
+            txt_weeks = weeks + ' Week';
         }
         // Days
         if(days>1) {
-            txt_days = days + ' Days, ';
+            txt_days = ', ' + days + ' Days';
         } else if (days==1) {
-            txt_days = days + ' Day, ';
+            txt_days = ', ' + days + ' Day';
         }
         // Hours
         if(hours>1) {
-            txt_hours = hours + ' Hours.';
+            txt_hours = ', ' + hours + ' Hours.';
         } else if (hours==1) {
-            txt_hours = hours + ' Hour.';
+            txt_hours = ', ' + hours + ' Hour.';
         } else {
-            txt_hours = 'Zero Hours.';   
+            txt_hours = '.';   
         }
         // Minutes
         if(minutes>1) {
