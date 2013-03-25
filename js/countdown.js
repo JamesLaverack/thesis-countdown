@@ -1,4 +1,5 @@
 var true_deadline = new Date("May 17, 2013 23:59:00");
+var timer;
 var deadline = true_deadline;
 $('#no-ext-button').hide();
 $('#custom-ext-controls input').keyup(validate_custom);
@@ -6,17 +7,18 @@ validate_custom();
 
 function cdtd() {
     update_countdown()
-    var timer = setTimeout('cdtd()',1000);
+    timer = setTimeout('cdtd()', 1000);
 }
 function update_countdown(){
     var now = new Date();
     var timeDiff = deadline.getTime() - now.getTime();
     if (timeDiff <= 0) {
         clearTimeout(timer);
+        $('#countdown p').text("");
         $('#countdown h1').text("It's Over!");
         $('#countdown h2').text("Now just the buisness plan...");
-        // Run any code needed for countdown completion here
     } else {
+        // Calcualte values
         var seconds = Math.floor(timeDiff / 1000);
         var minutes = Math.floor(seconds / 60);
         var hours = Math.floor(minutes / 60);
@@ -27,9 +29,53 @@ function update_countdown(){
         hours %= 24;
         minutes %= 60;
         seconds %= 60;
+        // Assemble text
+        var txt_weeks = "";
+        var txt_days = "";
+        var txt_hours = "";
+        var txt_minutes = "";
+        var txt_seconds = "";
+        // Link together
+        // Weeks
+        if(weeks>1) {
+            txt_weeks = weeks + ' Weeks, ';
+        } else if (weeks==1) {
+            txt_weeks = weeks + ' Week, ';
+        }
+        // Days
+        if(days>1) {
+            txt_days = days + ' Days, ';
+        } else if (days==1) {
+            txt_days = days + ' Day, ';
+        }
+        // Hours
+        if(hours>1) {
+            txt_hours = hours + ' Hours.';
+        } else if (hours==1) {
+            txt_hours = hours + ' Hour.';
+        } else {
+            txt_hours = 'Zero Hours.';   
+        }
+        // Minutes
+        if(minutes>1) {
+            txt_minutes = minutes + ' Minutes';
+        } else if (minutes==1) {
+            txt_minutes = minutes + ' Minute';
+        } else {
+            txt_minutes = '0 Minutes';
+        }
+        // Seconds
+        if(seconds>1) {
+            txt_seconds = ', ' + seconds + ' Seconds.';
+        } else if (seconds==1) {
+            txt_seconds = ', ' + seconds + ' Second.';
+        } else {
+            txt_seconds = '.';
+        }
         
-        $('#countdown h1').text(weeks + ' Weeks, ' + days + ' Days, ' + hours + ' Hours.');
-        $('#countdown h2').text('and ' + minutes + ' Minutes, ' + seconds + ' Seconds.');
+        // Set
+        $('#countdown h1').text(txt_weeks + txt_days + txt_hours);
+        $('#countdown h2').text('and ' + txt_minutes + txt_seconds);
         $('#waking-hours').text("That's only about " + waking_hours + " waking hours left. You could slep less, but try not to burn out."); 
     }
 }
