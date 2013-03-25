@@ -1,4 +1,4 @@
-var true_deadline = new Date("March 25, 2013 23:59:00");
+var true_deadline = new Date("May 17, 2013 23:59:00");
 var timer;
 var deadline = true_deadline;
 $('#no-ext-button').hide();
