@@ -1,3 +1,5 @@
+// Countdown code adapted from http://www.developphp.com/view.php?tid=1248
+
 var true_deadline = new Date("May 17, 2013 12:00:00");
 var timer;
 var deadline = true_deadline;
